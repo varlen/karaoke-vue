@@ -13,7 +13,7 @@
           <h2>Karaokê</h2>
         </a>
 
-        <div class="navbar-burger">
+        <div class="navbar-burger" @click="showMenu = !showMenu">
           <span />
           <span />
           <span />
@@ -22,7 +22,7 @@
     </nav>
 
     <section class="main-content columns">
-      <aside class="column is-2 section">
+      <aside class="column is-2 section" v-if="showMenu">
 
         <p class="menu-label is-hidden-touch">
           Menu
@@ -63,6 +63,7 @@ export default {
   },
   data () {
     return {
+      showMenu: false,
       items: [
         {
           title: 'Home',
@@ -70,7 +71,7 @@ export default {
           to: { name: 'index' }
         },
         {
-          title: 'W8',
+          title: 'W8 Bar',
           icon: 'beer',
           to: { name: 'w8' }
         }
@@ -84,7 +85,7 @@ export default {
 
 <style scoped>
 .expand-height {
-  min-height: 96vmin;
+  min-height: 96vh;
   max-height: 96vmin;
 }
 </style>

@@ -6,10 +6,20 @@
       </p>
       <p class="total-songs">{{ totalSongs }} músicas no catálogo</p>
       <div class="pager-box" v-if="!activeFilter">
+        <b-field>
+            <p class="control">
+                <b-button icon-left="skip-previous" @click="previousPage" :active="page > 0"/>
+            </p>
+            <p class="control">
+                <b-button :active="false">
+                    Página {{pageNumber}}/{{lastPage + 1}}
+                </b-button>
+            </p>
+            <p class="control">
+                <b-button icon-left="skip-next" @click="nextPage" :active="page < lastPage"/>
+            </p>
+        </b-field>
         <p class="subtitle">
-            <span v-if="page > 0" @click="previousPage"><b-icon icon="skip-previous" /></span>
-            Página {{pageNumber}}/{{lastPage + 1}}
-            <span v-if="page < lastPage" @click="nextPage"><b-icon icon="skip-next" /></span>
             <input class="pager" type="range" min="0" :max="lastPage" v-model.number="page" @change="goToPage"/>
         </p>
       </div>
@@ -52,8 +62,8 @@
                 <td>{{ song[1] }}</td>
                 <td>{{ song[0] }}</td>
                 <td>{{ song[2] }}</td>
-                <td>{{ song[3] }}</td>
-                <td>{{ song[4] }}</td>
+                <td class="lyrics">{{ song[3] }}</td>
+                <td class="country">{{ song[4] }}</td>
             </tr>
         </table>
       </div>
@@ -177,6 +187,7 @@ td {
 
 table {
     width: 100%;
+    font-size:small;
 }
 
 .pager{
@@ -203,6 +214,29 @@ table {
 
 .table-container {
     overflow-y:scroll;
-    max-height:64vmin;
+    max-height:64vh;
+}
+
+.hero-body {
+    padding: 2vw;
+}
+
+.country {
+    display:none;
+}
+
+.lyrics {
+    display:none;
+}
+
+@media (min-width:420px) {
+    .country {
+        display:inherit;
+    }
+
+    .lyrics {
+        font-size: x-small;
+        font-weight: normal;
+    }
 }
 </style>
