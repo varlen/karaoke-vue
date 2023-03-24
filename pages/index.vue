@@ -13,6 +13,9 @@
           <p class="venue-location"><b-icon icon="map-marker" size="is-small"></b-icon>  Vila Isabel</p>
       </b-button>
     </div>
+    <div class="repo-container">
+      <a href="https://github.com/varlen/karaoke-vue"><b-icon icon="github"></b-icon></a>
+    </div>
   </section>
 </template>
 
@@ -31,5 +34,14 @@ export default {
 .venue-location {
   font-size:small;
   font-weight:normal;
+}
+
+.repo-container {
+  text-align: center;
+}
+
+.repo-container > a {
+  color: black;
+  padding-bottom: 2vh;
 }
 </style>
