@@ -239,4 +239,10 @@ table {
         font-weight: normal;
     }
 }
+
+input[type=range] {
+    background-color:#c2230e;
+    background: #c2230e;
+    accent-color: #c2230e;
+}
 </style>
